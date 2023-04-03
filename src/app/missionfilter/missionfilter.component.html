@@ -1,0 +1,15 @@
+<div class="flex items-center ml-2">
+  <label class="mr-2" for="year">Filter by year:</label>
+  <input
+    class="border border-grey-200 rounded-lg p-1 mr-2"
+    type="number"
+    id="year"
+    [(ngModel)]="year"
+  />
+  <button
+    class="bg-gray-600 py-1 px-2 rounded-lg text-sm"
+    (click)="applyFilter()"
+  >
+    Apply
+  </button>
+</div>

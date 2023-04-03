@@ -1,0 +1,26 @@
+<h2 class="text-3xl m-2 font-bold tracking-wider">SpaceX Missions</h2>
+<app-missionfilter (filterByYear)="onFilterByYear($event)"></app-missionfilter>
+<ul class="flex flex-col">
+  <li
+    *ngFor="let mission of filteredMissions"
+    class="bg-gray-700 p-3 m-2 rounded-lg flex"
+    (click)="onMissionSelected(mission)"
+  >
+    <img
+      src="{{ mission.links.mission_patch_small }}"
+      alt="{{ mission.mission_name }} patch"
+      width="100"
+      height="100"
+    />
+    <div class="ml-2">
+      <h3 class="font-bold tracking-wider text-2xl">
+        {{ mission.mission_name }} ({{ mission.launch_year }})
+      </h3>
+      <p>{{ mission.details }}</p>
+    </div>
+    <app-missiondetails
+      *ngIf="selectedMission"
+      [flight_number]="selectedMission.flight_number"
+    ></app-missiondetails>
+  </li>
+</ul>
